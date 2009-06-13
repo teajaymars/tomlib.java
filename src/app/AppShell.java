@@ -18,7 +18,7 @@ public abstract class AppShell implements Surface {
 	private Keyboard keyboard;
 	
 	/** 
-	 * Instantiate a basic applicationy shell
+	 * Instantiate a basic application shell
 	 */
 	public AppShell(String title, final int W, final int H) {
 		pixels=new int[W*H];
