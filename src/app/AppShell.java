@@ -105,7 +105,7 @@ public abstract class AppShell implements Surface {
 		MyCanvas(Image _src) {
 			src=_src;
 		}
-		public void paint(java.awt.Graphics g) {
+		public void update(java.awt.Graphics g) {
 			g.drawImage(src,0,0,this);
 		}
 	}
