@@ -15,6 +15,10 @@ public class Graphics3D {
 	}
 	
 	public static void point(Cam3D cam, int x, int y, int z, int col) {
+		marker(cam,x,y,z,col,1);
+	}
+	
+	public static void marker(Cam3D cam, int x, int y, int z, int col, int size) {
 		// I need these values as a column matrix
 		float[][] f=new float[][] {  {x}, {y}, {z}, {1} };
 		f=Maths.matrixMultiply(cam.toRotationMatrix(), Maths.matrixMultiply(cam.toTranslationMatrix(), f));
@@ -22,10 +26,10 @@ public class Graphics3D {
 		float fx=f[0][0]; 
 		float fy=f[1][0]; 
 		float fz=f[2][0];
-		if (fz<=0) return;  // its behind the camera
+		if (fz<=1) return;  // its behind the camera
 		x=ORIGIN_X + (int)(PERSPECTIVE*fx/fz);
 		y=ORIGIN_Y- (int)(PERSPECTIVE*fy/fz);
-		Graphics.point(x,y,col);
+		Graphics.marker(x,y,size,col);
 	}
 	
 	public static void line(Cam3D cam, int x1, int y1, int z1, int x2, int y2, int z2, int col) {
@@ -70,15 +74,15 @@ public class Graphics3D {
 		
 		// Backface culling
 		// Work out the cross product vector
-		final float ax=fx2-fx1, ay=fy2-fy1, az=fz2-fz1;
-		final float bx=fx3-fx1, by=fy3-fy1, bz=fz3-fz1;
-		float[] cross=new float[] {
-				ay*bz - az*by,	
-				az*bx - ax*bz,	
-				ax*by - ay*bx,	
-		};
-		final float dot=cross[0]*fx2 + cross[1]*fy2 + cross[2]*fz2;
-		if (dot<0) return; // Triangle does not face the camera
+//		final float ax=fx2-fx1, ay=fy2-fy1, az=fz2-fz1;
+//		final float bx=fx3-fx1, by=fy3-fy1, bz=fz3-fz1;
+//		float[] cross=new float[] {
+//				ay*bz - az*by,	
+//				az*bx - ax*bz,	
+//				ax*by - ay*bx,	
+//		};
+//		final float dot=cross[0]*fx2 + cross[1]*fy2 + cross[2]*fz2;
+//		if (dot<0) return; // Triangle does not face the camera
 		
 		x1=ORIGIN_X + 	(int)(PERSPECTIVE*fx1/fz1);
 		y1=ORIGIN_Y- 	(int)(PERSPECTIVE*fy1/fz1);
