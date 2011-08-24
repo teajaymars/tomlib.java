@@ -1,5 +1,5 @@
-TWITTER BOOTSTRAP
-=================
+TOMLIB :: Lightweight Java Games Library
+========================================
 
 TomLib is Tom's Java library for bootstrapping development of Java games and interfaces. It provides base functionality for 2D and 3D rendering, debug overlays, keyboard i/o and mouse control.
 It is partly an exercise in deriving-from-scratch the primitives required to produce an interactive software product. Although it is lightweight and is not built for production use, it has some value for prototypes without the overhead of a full games library.
