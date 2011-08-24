@@ -1,12 +1,12 @@
-TOMLIB :: Lightweight Java Games Library
+TomLib :: Lightweight Java Games Library
 ========================================
 
-TomLib is Tom's Java library for bootstrapping development of Java games and interfaces. It provides base functionality for 2D and 3D rendering, debug overlays, keyboard i/o and mouse control.
+TomLib is Tom's Java library for bootstrapping development of Java games and interfaces. It provides base functionality for 2D and 3D rendering, debug overlays, keyboard I/O and mouse control.
 It is partly an exercise in deriving-from-scratch the primitives required to produce an interactive software product. Although it is lightweight and is not built for production use, it has some value for prototypes without the overhead of a full games library.
 
 The library sets up a Java AWT instance which behaves similar to Flash when embedded in a browser. This can be extended to build full browser-based Java games. 
 
-AUTHOR
+Author
 ------
 
 **Tom Rees**
@@ -18,6 +18,7 @@ Copyright and License
 ---------------------
 
 TomLib is distributed under the BSD license.
+<small>
 Copyright (c) 2011 Tom Rees
 All rights reserved.
 
@@ -42,3 +43,4 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</small>
