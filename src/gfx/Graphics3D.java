@@ -4,7 +4,7 @@ import app.Maths;
 
 public class Graphics3D {
 
-	public static final float PERSPECTIVE=600;
+	public static float PERSPECTIVE=600;
 	
 	public static int 	ORIGIN_X, 
 						ORIGIN_Y;

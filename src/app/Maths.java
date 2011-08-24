@@ -4,6 +4,8 @@ public class Maths {
 
 	/** Floating point matrix muliplication */
 	public static float[][] matrixMultiply(float[][] a, float[][] b) {
+		// Width of a = Height of b
+		assert (a[0].length==b.length);
 		float[][] c=new float[a.length][b[0].length];
 		// For each row in a, and each column in b
 		for (int i=0;i<a.length;i++) {

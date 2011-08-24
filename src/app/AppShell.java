@@ -16,6 +16,8 @@ public abstract class AppShell implements Surface {
 	private int[] pixels;
 	private Mouse mouse;
 	private Keyboard keyboard;
+	protected boolean debugVisible=true;
+	protected String[] debugText={};
 	
 	/** 
 	 * Instantiate a basic application shell
@@ -39,7 +41,7 @@ public abstract class AppShell implements Surface {
 		f.setResizable(false);
 		f.setVisible(true);
 		Insets insets=f.getInsets();
-		
+		 
 		f.setSize(W+insets.left+insets.right, H+insets.top+insets.bottom);
 	}
 	
@@ -77,7 +79,6 @@ public abstract class AppShell implements Surface {
 				Point p=canvas.getMousePosition();
 				if (p!=null) processMouseState((int)p.getX(),(int)p.getY());
 			}
-			
 			update();
 			gfx.Graphics.setSurface(this);
 			render();
@@ -100,13 +101,28 @@ public abstract class AppShell implements Surface {
 	public abstract void update();
 	public abstract void render();
 	
-	static class MyCanvas extends Canvas {
+	class MyCanvas extends Canvas {
 		public Image src;
 		MyCanvas(Image _src) {
 			src=_src;
 		}
 		public void update(java.awt.Graphics g) {
 			g.drawImage(src,0,0,this);
+			if (debugVisible) {
+				g.setColor(Color.black);
+				g.fillRect(5,5,longest(debugText)*7+10,debugText.length*14+10);
+				g.setColor(Color.white);
+				g.setFont(new Font("Courier New", 0, 12));
+				for (int i=0;i<debugText.length;i++) {
+					g.drawChars(debugText[i].toCharArray(), 0, debugText[i].length(), 10, 20+i*14);
+				}
+			}
+		}
+		private int longest(String[] ss) {
+			int longest=0;
+			for (String s : ss)  
+				longest=Math.max(s.length(),longest);
+			return longest;
 		}
 	}
 	
